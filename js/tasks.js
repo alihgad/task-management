@@ -7,7 +7,7 @@ let task = document.querySelector("#task"),
 
 
 async function getData() {
-    let response = await fetch("http://localhost:3000/tasks")
+    let response = await fetch("https://t-mapi-alihgads-projects.vercel.app/tasks")
     let data = await response.json()
     displayTasks(data.result)
     return
@@ -69,7 +69,7 @@ async function addTask() {
 }
 
 async function api(method, body={},id="") {
-    fetch(`http://localhost:3000/tasks/${id}`, {
+    fetch(`https://t-mapi-alihgads-projects.vercel.app/tasks/${id}`, {
         method,
         body: JSON.stringify(body),
         headers: {
@@ -101,7 +101,7 @@ async function deleteing(id) {
 
     
     console.log(id);
-    await fetch(`http://localhost:3000/tasks/${id}`, {
+    await fetch(`https://t-mapi-alihgads-projects.vercel.app/tasks/${id}`, {
         method : "DELETE",
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
