@@ -1,53 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ToDo list</title>
-  <link rel="stylesheet" href="./css/all.min.css">
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.min.css">
-
-</head>
-<body>
-
-  <nav class="navbar navbar-expand-lg bg-body-tertiary position-fixed end-0 start-0">
-    <div class="container">
-      <h1 class="navbar-brand m-0" >Task Mangment System</h1>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" href="tasks.html">Tasks</a>
-          <a class="nav-link" href="#">About</a>
-          <a class="nav-link disabled" aria-disabled="true">Contact</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo list</title>
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.min.css"
+    />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary position-fixed end-0 start-0"
+    >
+      <div class="container">
+        <h1 class="navbar-brand m-0">Task Mangment System</h1>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNavAltMarkup"
+        >
+          <div class="navbar-nav">
+            <a class="nav-link" href="tasks.html">Tasks</a>
+            <a class="nav-link" href="#">About</a>
+            <a class="nav-link disabled" aria-disabled="true">Contact</a>
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
-  
-  
+    </nav>
 
-  <main>
-    <div id="content" class="container  pt-5 ">
-        <div class="list mt-5 p-5 shadow  ">
-
+    <main>
+      <div id="content" class="container pt-5">
+        <div class="list mt-5 p-5 shadow">
           <form action="" class="w-50 mx-auto mb-5 text-center w-75-mobile">
+            <input
+              type="text"
+              id="task"
+              class="form-control mb-3"
+              placeholder="Task ToDo"
+              aria-label="Task ToDo"
+              aria-describedby="addTask"
+            />
+            <input
+              type="text"
+              id="description"
+              class="form-control mb-3"
+              placeholder="description"
+              aria-label="description"
+            />
 
-              <input type="text" id="task" class="form-control mb-3 " placeholder="Task ToDo" aria-label="Task ToDo" aria-describedby="addTask">
-              <input type="text" id="description" class="form-control mb-3 " placeholder="description" aria-label="description" >
-  
-            <div id="add" class="btn btn-outline-primary w-25 w-50-mobile">Add</div>
+            <div id="add" class="btn btn-outline-primary w-25 w-50-mobile">
+              Add
+            </div>
           </form>
 
           <table id="table" class="table text-center w-50 w-75-mobile mx-auto">
@@ -60,17 +77,17 @@
               </tr>
             </thead>
             <tbody id="tbody">
-              
+              <tr>
+                
+              </tr>
             </tbody>
           </table>
-
         </div>
-    </div>
-  </main>
+      </div>
+    </main>
 
-  <script src="./js/bootstrap.bundle.min.js"></script>
-  <script src="./js/tasks.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js"></script>
-
-</body>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/tasks.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js"></script>
+  </body>
 </html>
