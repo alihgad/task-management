@@ -33,6 +33,7 @@ function displayTasks(arr) {
                 <td>${arr[i].status} </td>
                 <td>
                 <div class="btn btn-success" onclick = "doneing(${arr[i].id})">Done <i class="fa-solid fa-check-square fa-xl"></i></div>
+                <div class="btn btn-warning" onclick = "update(${arr[i].id})">update </i></div>
                 <div class="btn btn-danger" onclick = "deleteing(${arr[i].id})">Delete <i class="fa-solid fa-square-xmark fa-xl"></i></div>
                 </td>
               </tr>
@@ -80,6 +81,8 @@ async function addTask() {
     }
 
     api('POST', data)
+    clear()
+
 
 
 
@@ -136,19 +139,21 @@ async function doneing(id) {
 
     document.getElementById("tbody").innerHTML = loader
 
-    console.log(id);
-    await fetch(`https://t-mapi-alihgads-projects.vercel.app/tasks/${id}`, {
-        method: "PUT",
-        headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-        },
-    })
-        .then((response) => response.json())
-        .catch(err => console.log(err));
-    ;
-    getData()
+    await api('PUT',{},id)
+
+}
+
+async function update(id) {
+
 }
 
 window.onload = function () {
     getData()
 }
+
+
+window.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+        addTask()
+    }
+})
