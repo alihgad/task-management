@@ -33,12 +33,12 @@ function displayTasks(arr) {
         for (let i = 0; i < arr.length; i++) {
             cartona += `<tr>
                 <td>${arr[i].title}</td>
-                <td>${arr[i].description} </td>
+                <td class="">${arr[i].description} </td>
                 <td>${arr[i].status} </td>
-                <td>
-                <div class="btn btn-success" onclick = "doneing(${arr[i].id})">Done <i class="fa-solid fa-check-square fa-xl"></i></div>
-                <div class="btn btn-warning" onclick = "edit(${arr[i].id})">update </i></div>
-                <div class="btn btn-danger" onclick = "deleteing(${arr[i].id})">Delete <i class="fa-solid fa-square-xmark fa-xl"></i></div>
+                <td class='d-flex d-lg-block justify-content-between flex-wrap' >
+                <div class="btn btn-success " onclick = "doneing(${arr[i].id})">Done <i class="fa-solid fa-check-square fa-xl"></i></div>
+                <div class="btn btn-warning " onclick = "edit(${arr[i].id})">update </i></div>
+                <div class="btn btn-danger  " onclick = "deleteing(${arr[i].id})">Delete <i class="fa-solid fa-square-xmark fa-xl"></i></div>
                 </td>
               </tr>
                 `

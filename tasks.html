@@ -13,9 +13,7 @@
     />
   </head>
   <body>
-    <nav
-      class="navbar navbar-expand-lg bg-body-tertiary position-fixed end-0 start-0"
-    >
+    <nav class="navbar navbar-expand-lg bg-body-tertiary position-fixed end-0 start-0">
       <div class="container">
         <a href="index.html" class="link-body-emphasis text-decoration-none"><h1 class="navbar-brand m-0">Task Mangment System</h1></a>
         <button
@@ -29,23 +27,20 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div
-          class="collapse navbar-collapse justify-content-end"
-          id="navbarNavAltMarkup"
-        >
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-link" href="tasks.html">Tasks</a>
-            <a class="nav-link" href="#">About</a>
-            <a class="nav-link" href="#" >Contact</a>
+            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="contact.html">Contact</a>
           </div>
         </div>
       </div>
     </nav>
 
     <main>
-      <div id="content" class="container pt-5">
-        <div class="list mt-5 p-5 shadow">
-          <form action="" class="w-50 mx-auto mb-5 text-center w-75-mobile">
+      <div id="content" class="container py-5">
+        <div class="list mt-5 py-5 px-lg-5 px-3 shadow">
+          <form action="" class="w-50 mx-auto mb-5 text-center w-75-mobile" rules="all">
             <input
               type="text"
               id="task"
@@ -73,21 +68,23 @@
 
           </form>
 
-          <table id="table" class="table text-center w-50 w-75-mobile mx-auto">
-            <thead>
-              <tr>
-                <th>Task</th>
-                <th>Description</th>
-                <th>Status</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="tbody">
-              <tr>
-                
-              </tr>
-            </tbody>
-          </table>
+          <div id="tableParent" class="  w-100 mx-lg-auto ">
+            <table id="table" class="table text-center">
+              <thead>
+                <tr>
+                  <th>Task</th>
+                  <th>Description</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="tbody">
+                <tr>
+                  
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </main>

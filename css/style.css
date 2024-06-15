@@ -68,4 +68,8 @@ label{
     .w-75-mobile{
         width: 75% !important;
     }
+
+    #tableParent{
+        overflow-x: scroll;
+    }
 }
