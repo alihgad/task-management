@@ -1,21 +1,25 @@
 
 let task = document.querySelector("#task"),
+    tasks = [],
     description = document.querySelector("#description"),
-    done = document.getElementById("done"),
+    theId,
     loader = `<td colspan="4">
         <i class="fa-solid fa-search fa-beat-fade fa-3x p-5" ></i >
                 </td > `
 
-                
+
+document.querySelector('#update').style.display = "none"
 
 
-    document.getElementById("tbody").innerHTML = loader
+
+document.getElementById("tbody").innerHTML = loader
 async function getData() {
 
 
     let response = await fetch("https://t-mapi-alihgads-projects.vercel.app/tasks")
     let data = await response.json()
     displayTasks(data.result)
+    tasks = data.result
     return
 }
 
@@ -33,7 +37,7 @@ function displayTasks(arr) {
                 <td>${arr[i].status} </td>
                 <td>
                 <div class="btn btn-success" onclick = "doneing(${arr[i].id})">Done <i class="fa-solid fa-check-square fa-xl"></i></div>
-                <div class="btn btn-warning" onclick = "update(${arr[i].id})">update </i></div>
+                <div class="btn btn-warning" onclick = "edit(${arr[i].id})">update </i></div>
                 <div class="btn btn-danger" onclick = "deleteing(${arr[i].id})">Delete <i class="fa-solid fa-square-xmark fa-xl"></i></div>
                 </td>
               </tr>
@@ -41,7 +45,7 @@ function displayTasks(arr) {
         }
 
         document.getElementById("tbody").innerHTML = cartona
-    }else{
+    } else {
         document.getElementById("tbody").innerHTML = `<td colspan="4">
         <h5 class='text-danger'> No Tasks Yet </h5>
                 </td > `
@@ -101,7 +105,8 @@ async function api(method, body = {}, id = "") {
             console.log(json)
             getData()
         }
-        ).catch(err => console.log(err));
+        )
+        .catch(err => console.log(err));
     ;
 }
 
@@ -113,8 +118,12 @@ function clear() {
 
 document.getElementById("add").addEventListener("click", function () {
     addTask()
-    getData()
     clear()
+})
+document.getElementById("update").addEventListener("click", function () {
+    update()
+    document.querySelector('#add').style.display = "block"
+    document.querySelector('#update').style.display = "none"
 })
 
 async function deleteing(id) {
@@ -139,12 +148,31 @@ async function doneing(id) {
 
     document.getElementById("tbody").innerHTML = loader
 
-    await api('PUT',{},id)
+    await api('PATCH', {}, id)
 
 }
 
-async function update(id) {
 
+function edit(id) {
+    let theTask = tasks.find((task) => task.id = id)
+    task.value = theTask.title
+    description.value = theTask.description
+    document.querySelector('#add').style.display = "none"
+    document.querySelector('#update').style.display = "block"
+    theId = id
+    console.log(theId);
+}
+
+async function update() {
+    document.getElementById("tbody").innerHTML = loader
+    
+
+    let data = {
+        title: task.value,
+        description: description.value,
+    }
+    api('PUT', data, theId)
+    clear()
 }
 
 window.onload = function () {
